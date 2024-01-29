@@ -3,6 +3,7 @@
 	import fragmentShader from '$lib/fragment.glsl?raw';
 	import vertexShader from '$lib/vertex.glsl?raw';
 
+	export let rotation = [0, 0, 0];
 	let time = 0.0;
 
 	function animate() {
@@ -16,7 +17,7 @@
 
 <T.PerspectiveCamera makeDefault position={[0, 1.5, 10]} fov={15}></T.PerspectiveCamera>
 
-<T.Mesh position={[0, 1.5, 0]} rotation={[0, 0, 0]}>
+<T.Mesh position={[0, 1.5, 0]} {rotation}>
 	<T.PlaneGeometry args={[2, 2, 1]} />
 	<T.ShaderMaterial
 		{vertexShader}
