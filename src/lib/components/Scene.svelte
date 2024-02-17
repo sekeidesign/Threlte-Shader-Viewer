@@ -6,19 +6,8 @@
 	import fragmentShader from '$lib/fragment.glsl?raw';
 	import vertexShader from '$lib/vertex.glsl?raw';
 
+	// Time uniform
 	let time = 0.0;
-	const size = windowSizeStore();
-	const sizeUniform = new Vector2();
-	$: sizeUniform.set($size.width, $size.height);
-	$: s = Math.max($size.width, $size.height);
-	const position = mouseStore();
-
-	// Create a new THREE.Vector2 for the uniform
-	const positionUniform = new Vector2();
-
-	// Update the uniform whenever the position changes
-	positionUniform.set($position.x, $position.y);
-
 	function animate() {
 		requestAnimationFrame(animate);
 
@@ -26,6 +15,17 @@
 		time += 0.05;
 	}
 	animate();
+
+	// Window size uniform
+	const size = windowSizeStore();
+	const sizeUniform = new Vector2();
+	$: sizeUniform.set($size.width, $size.height);
+	$: s = Math.max($size.width, $size.height);
+
+	// Mouse position uniform
+	const position = mouseStore();
+	const positionUniform = new Vector2();
+	$: positionUniform.set($position.x, $position.y);
 </script>
 
 <!-- Perspective Camera setup -->
