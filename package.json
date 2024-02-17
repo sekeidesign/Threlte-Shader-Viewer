@@ -30,6 +30,7 @@
   },
   "type": "module",
   "dependencies": {
+    "svelte-legos": "^0.2.2",
     "svelte-tweakpane-ui": "^1.2.0"
   }
 }
